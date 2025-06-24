@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuración de Usuario</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script>
+        function confirmarCambio(mensaje) {
+            return confirm(mensaje);
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Configuración de Usuario</h1>
+        </div>
+        <div class="login-box">
+            <form th:action="@{/configuracion}" method="post" class="login-form">
+                <div class="form-group">
+                    <label for="email">Nuevo correo electrónico</label>
+                    <input type="email" id="email" name="email" th:value="${usuario.email}" required>
+                </div>
+                <div class="form-group">
+                    <label for="contrasena">Nueva contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena">
+                </div>
+                <div class="form-group" style="display: flex; gap: 10px;">
+                    <button type="submit" name="accion" value="cambiarEmail"
+                        onclick="return confirmarCambio('¿Está seguro que desea cambiar el correo electrónico?');">
+                        Cambiar correo
+                    </button>
+                    <button type="submit" name="accion" value="cambiarContrasena"
+                        onclick="return confirmarCambio('¿Está seguro que desea cambiar la contraseña?');">
+                        Cambiar contraseña
+                    </button>
+                    <a th:href="@{/home}" class="login-button" style="text-align:center;">Volver al Home</a>
+                </div>
+                <div th:if="${emailExistente}" class="error-message">
+                    El correo electrónico ya está registrado. Por favor, use otro.
+                </div>
+                <div th:if="${exito}" class="success-message">
+                    Cambios guardados correctamente.
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

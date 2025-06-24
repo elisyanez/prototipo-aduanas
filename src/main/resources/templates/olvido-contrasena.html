@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recuperar Contraseña</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Recuperar Contraseña</h1>
+        </div>
+        <div class="login-box">
+            <form th:action="@{/olvido-contrasena}" method="post" class="login-form">
+                <div class="form-group">
+                    <label for="email">Ingrese su correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit" class="login-button">Enviar enlace de recuperación</button>
+                <div th:if="${emailNoExiste}" class="error-message">
+                    El correo electrónico no está registrado.
+                </div>
+                <div th:if="${exito}" class="success-message">
+                    Se ha enviado un enlace de recuperación a su correo.
+                </div>
+            </form>
+            <div class="login-footer" style="margin-top: 15px;">
+                <a th:href="@{/login}">Volver al inicio de sesión</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

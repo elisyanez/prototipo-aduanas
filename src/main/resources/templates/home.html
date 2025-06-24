@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ADUANAS DE CHILE - Sistema</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .main-nav li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .main-nav a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .main-nav i {
+            margin-right: 10px;
+            min-width: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function moduloEnDesarrollo(event) {
+            event.preventDefault();
+            alert('Este módulo aún está en proceso de desarrollo, disculpe las molestias.');
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <img src="/images/aduanas.png" alt="Aduanas de Chile" class="logo">
+            <h1>ADUANAS<br>DE CHILE</h1>
+        </div>
+        <div class="login-box">
+            <div class="user-info" style="margin-bottom: 20px;">
+                Bienvenido, <span th:text="${usuario.nombre}"></span>
+            </div>
+            <nav class="main-nav" style="margin-bottom: 20px;">
+                <ul>
+                    <li>
+                        <a href="#" onclick="moduloEnDesarrollo(event)">
+                            <i class="fa fa-file-alt"></i>
+                            Módulo Aduanas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="moduloEnDesarrollo(event)">
+                            <i class="fa fa-envelope"></i>
+                            Declaraciones pendientes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="moduloEnDesarrollo(event)">
+                            <i class="fa fa-clock"></i>
+                            Historial
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/configuracion">
+                            <i class="fa fa-gear"></i>
+                            Configuración de usuario
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/logout" class="logout">
+                            <i class="fa fa-sign-out-alt"></i>
+                            Cerrar sesión
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="content">
+                <h2>Bienvenido al sistema</h2>
+            </div>
+        </div>
+        <div class="login-footer" style="margin-top: 15px;">
+            <p>Version 1.0 - Junio 2025</p>
+        </div>
+    </div>
+</body>
+</html>
