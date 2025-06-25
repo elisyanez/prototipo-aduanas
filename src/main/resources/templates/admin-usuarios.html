@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Gestión de Usuarios</h1>
+        </div>
+        <div class="login-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="usuario : ${usuarios}">
+                        <td th:text="${usuario.id}"></td>
+                        <td th:text="${usuario.nombre}"></td>
+                        <td th:text="${usuario.username}"></td>
+                        <td th:text="${usuario.email}"></td>
+                        <td>
+                            <form th:action="@{/admin/usuarios/eliminar}" method="post" style="display:inline;">
+                                <input type="hidden" name="id" th:value="${usuario.id}" />
+                                <button type="submit" onclick="return confirm('¿Eliminar usuario?');">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top:15px;">
+                <a th:href="@{/home}">Volver al Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

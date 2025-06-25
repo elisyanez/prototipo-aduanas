@@ -73,6 +73,12 @@
                             Configuración de usuario
                         </a>
                     </li>
+                    <li th:if="${usuario.rol == 'ADMIN'}">
+                        <a th:href="@{/admin/usuarios}">
+                            <i class="fa fa-users"></i>
+                            Gestión de usuarios
+                        </a>
+                    </li>
                     <li>
                         <a href="/logout" class="logout">
                             <i class="fa fa-sign-out-alt"></i>
