@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Usuario</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Editar Usuario</h1>
+        </div>
+        <div class="login-box">
+            <form th:action="@{/admin/usuarios/editar}" method="post" class="login-form">
+                <input type="hidden" name="id" th:value="${usuario.id}" />
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" th:value="${usuario.nombre}" required>
+                </div>
+                <div class="form-group">
+                    <label for="rut">RUT</label>
+                    <input type="text" id="rut" name="rut" th:value="${usuario.rut}" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" name="username" th:value="${usuario.username}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo</label>
+                    <input type="email" id="email" name="email" th:value="${usuario.email}" required>
+                </div>
+                <div class="form-group">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" th:value="${usuario.contrasena}" required>
+                </div>
+                <div class="form-group">
+                    <label for="rol">Rol</label>
+                    <select id="rol" name="rol" required>
+                        <option value="USER" th:selected="${usuario.rol == 'USER'}">Usuario</option>
+                        <option value="ADMIN" th:selected="${usuario.rol == 'ADMIN'}">Administrador</option>
+                    </select>
+                </div>
+                <button type="submit" class="login-button">Guardar cambios</button>
+            </form>
+            <div style="margin-top:15px;">
+                <a th:href="@{/admin/usuarios}">Volver a la gestión</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

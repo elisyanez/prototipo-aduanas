@@ -32,7 +32,7 @@ public class RestablecerContrasenaController {
             return "restablecer-contrasena";
         }
         usuario.setContrasena(contrasena);
-        usuario.setTokenRecuperacion(null); // Invalida el token
+        usuario.setTokenRecuperacion(null);
         usuarioService.saveUsuario(usuario);
         model.addAttribute("exito", true);
         return "restablecer-contrasena";

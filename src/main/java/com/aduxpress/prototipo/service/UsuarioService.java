@@ -17,6 +17,10 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
+    public Usuario findByUsername(String username) {
+        return usuarioRepository.findByUsername(username);
+    }
+
     public Usuario getUsuarioById(Long id) {
         return usuarioRepository.findById(id).orElse(null);
     }

@@ -7,6 +7,7 @@ import com.aduxpress.prototipo.model.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+    Usuario findByUsername(String username);
 
     Usuario findByUsernameAndContrasena(String username, String contrasena);
     Usuario findByEmail(String email);

@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aduxpress.prototipo.service.UsuarioService;
+import com.aduxpress.prototipo.service.HistorialService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -18,6 +20,13 @@ public class LoginController {
 
     @Autowired
     private UsuarioService usuarioService;
+
+    @Autowired
+    private HistorialService hs;
+
+    @GetMapping("favicon.ico")
+    @ResponseBody
+    void returnNoFavicon() {}
 
     @GetMapping("/login")
     public String mostrarLogin() {
@@ -31,10 +40,10 @@ public class LoginController {
             HttpSession session,
             Model model) {
 
-        Usuario usuario = usuarioService.obtenerUsuarioPorUsername(username, contrasena);
+        Usuario usuario = usuarioService.findByUsername(username);
         if (usuario != null && usuario.getContrasena().equals(contrasena)) {
-            // Guardar el usuario en la sesión
             session.setAttribute("usuario", usuario);
+            hs.registrarAccion(usuario, "Inicio de sesión", "El usuario inició sesión correctamente.");
             return "redirect:/home";
         } else {
             model.addAttribute("error", true);

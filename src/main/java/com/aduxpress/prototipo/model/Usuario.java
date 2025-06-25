@@ -30,6 +30,9 @@ public class Usuario {
     @Column(name = "rol", nullable = false)
     private String rol = "USER"; // Valores posibles: "ADMIN", "USER"
 
+    @Column(name = "rut", nullable = false, unique = true)
+    private String rut;
+
     public String getTokenRecuperacion() { return tokenRecuperacion; }
     public void setTokenRecuperacion(String tokenRecuperacion) { this.tokenRecuperacion = tokenRecuperacion; }
 

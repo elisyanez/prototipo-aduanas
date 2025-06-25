@@ -1,6 +1,7 @@
 package com.aduxpress.prototipo.controller;
 
 import com.aduxpress.prototipo.model.Usuario;
+import com.aduxpress.prototipo.service.HistorialService;
 import com.aduxpress.prototipo.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -13,6 +14,9 @@ import java.util.UUID;
 
 @Controller
 public class OlvidoContrasenaController {
+
+    @Autowired
+    private HistorialService historialService;
 
     @Autowired
     private UsuarioService usuarioService;
@@ -48,7 +52,7 @@ public class OlvidoContrasenaController {
             mailMessage.setText(mensaje);
 
             mailSender.send(mailMessage);
-
+            historialService.registrarAccion(usuario, "Recuperación de contraseña", "El usuario solicitó la recuperación de su contraseña.");
             model.addAttribute("exito", true);
         }
         return "olvido-contrasena";

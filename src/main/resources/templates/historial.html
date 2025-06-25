@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Usuario</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Historial de Usuario</h1>
+        </div>
+        <div class="login-box">
+            <div th:if="${sesionInactiva}" class="error-message">
+                Su sesión está inactiva. <a th:href="@{/login}">Inicie sesión nuevamente</a>.
+            </div>
+            <div th:if="${error}" class="error-message">
+                Ocurrió un error al cargar el historial. Intente más tarde.
+            </div>
+            <div th:if="${#lists.isEmpty(historial)} and !${sesionInactiva} and !${error}" class="info-message">
+                No hay historial de acciones para mostrar.
+            </div>
+            <div th:if="${historial != null and !#lists.isEmpty(historial)}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Acción</th>
+                            <th>Detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item : ${historial}">
+                            <td th:text="${item.fecha}"></td>
+                            <td th:text="${item.accion}"></td>
+                            <td th:text="${item.detalle}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-top:15px;">
+                <a th:href="@{/home}">Volver al Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
