@@ -20,7 +20,7 @@ Este es un prototipo funcional de un sistema web para la gestión interna de Adu
 1. **Clona el repositorio:**
 
    ```sh
-   git clone https://github.com/tuusuario/prototipo-aduanas.git
+   git clone https://github.com/elisyanez/prototipo-aduanas.git
    cd prototipo-aduanas
    ```
 
