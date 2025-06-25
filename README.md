@@ -24,11 +24,7 @@ Este es un prototipo funcional de un sistema web para la gestión interna de Adu
    cd prototipo-aduanas
    ```
 
-2. **Compila y ejecuta la aplicación:**
-
-   ```sh
-   mvn spring-boot:run
-   ```
+2. **Abre la carpeta y ejecuta la aplicación:**
 
 3. **Accede a la aplicación:**
 
