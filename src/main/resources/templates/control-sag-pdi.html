@@ -1,0 +1,39 @@
+<!-- control-sag-pdi.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Control SAG y PDI</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="login-container">
+    <div class="login-header">
+        <h1>Panel de Control SAG y PDI</h1>
+    </div>
+    <div class="login-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Persona/Vehículo</th>
+                    <th>Tipo de revisión</th>
+                    <th>Resultado</th>
+                    <th>Observaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="rev : ${revisiones}">
+                    <td th:text="${rev.fecha}"></td>
+                    <td th:text="${rev.objeto}"></td>
+                    <td th:text="${rev.tipo}"></td>
+                    <td th:text="${rev.resultado}"></td>
+                    <td th:text="${rev.observaciones}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/home}">Volver al Home</a>
+    </div>
+</div>
+</body>
+</html>

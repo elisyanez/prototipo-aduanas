@@ -1,0 +1,56 @@
+<!-- menores.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Salida/Entrada de Menores</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="login-container">
+    <div class="login-header">
+        <h1>Salida/Entrada de Menores</h1>
+    </div>
+    <div class="login-box">
+        <form th:action="@{/menores/registrar}" method="post" class="login-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nombreMenor">Nombre del menor</label>
+                <input type="text" id="nombreMenor" name="nombreMenor" required>
+            </div>
+            <div class="form-group">
+                <label for="rutMenor">RUT/Pasaporte del menor</label>
+                <input type="text" id="rutMenor" name="rutMenor" required>
+            </div>
+            <div class="form-group">
+                <label for="nombrePadre">Nombre del padre/madre/tutor</label>
+                <input type="text" id="nombrePadre" name="nombrePadre" required>
+            </div>
+            <div class="form-group">
+                <label for="rutPadre">RUT/Pasaporte del padre/madre/tutor</label>
+                <input type="text" id="rutPadre" name="rutPadre" required>
+            </div>
+            <div class="form-group">
+                <label for="tipoAutorizacion">Tipo de autorización</label>
+                <select id="tipoAutorizacion" name="tipoAutorizacion" required>
+                    <option value="notarial">Notarial</option>
+                    <option value="judicial">Judicial</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="autorizacion">Número o detalle de autorización</label>
+                <input type="text" id="autorizacion" name="autorizacion" required>
+            </div>
+            <!-- Opcional: Adjuntar archivo -->
+            <!-- <div class="form-group">
+                <label for="archivoAutorizacion">Adjuntar autorización (PDF/JPG)</label>
+                <input type="file" id="archivoAutorizacion" name="archivoAutorizacion">
+            </div> -->
+            <button type="submit" class="login-button">Registrar</button>
+        </form>
+        <div th:if="${param.exito}" class="success-message">
+            Registro exitoso.
+        </div>
+    </div>
+</div>
+</body>
+</html>

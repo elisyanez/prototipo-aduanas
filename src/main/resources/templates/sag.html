@@ -1,0 +1,41 @@
+<!-- sag.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Declaración Jurada SAG</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="login-container">
+    <div class="login-header">
+        <h1>Declaración Jurada SAG</h1>
+    </div>
+    <div class="login-box">
+        <form th:action="@{/sag/registrar}" method="post" class="login-form">
+            <div class="form-group">
+                <label for="nombre">Nombre del declarante</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="productos">¿Porta productos animales o vegetales?</label>
+                <select id="productos" name="productos" required>
+                    <option value="no">No</option>
+                    <option value="si">Sí</option>
+                </select>
+            </div>
+            <div class="form-group" id="detalleProductos" style="display:none;">
+                <label for="detalle">Detalle de productos</label>
+                <textarea id="detalle" name="detalle"></textarea>
+            </div>
+            <button type="submit" class="login-button">Declarar</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('productos').addEventListener('change', function() {
+            document.getElementById('detalleProductos').style.display = this.value === 'si' ? 'block' : 'none';
+        });
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!-- vehiculos.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Salida/Entrada Temporal de Vehículos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="login-container">
+    <div class="login-header">
+        <h1>Salida/Entrada Temporal de Vehículos</h1>
+    </div>
+    <div class="login-box">
+        <form th:action="@{/vehiculos/registrar}" method="post" class="login-form">
+            <div class="form-group">
+                <label for="patente">Patente</label>
+                <input type="text" id="patente" name="patente" required>
+            </div>
+            <div class="form-group">
+                <label for="propietario">Propietario</label>
+                <input type="text" id="propietario" name="propietario" required>
+            </div>
+            <div class="form-group">
+                <label for="fechaSalida">Fecha de salida</label>
+                <input type="date" id="fechaSalida" name="fechaSalida" required>
+            </div>
+            <div class="form-group">
+                <label for="fechaRetorno">Fecha estimada de retorno</label>
+                <input type="date" id="fechaRetorno" name="fechaRetorno">
+            </div>
+            <button type="submit" class="login-button">Registrar</button>
+        </form>
+    </div>
+    <div th:if="${param.exito}" class="success-message">
+        Registro exitoso.
+    </div>
+</div>
+</body>
+</html>

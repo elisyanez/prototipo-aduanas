@@ -1,0 +1,76 @@
+<!-- aduanas.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Módulo Aduanas</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .aduanas-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .aduanas-menu li {
+            margin-bottom: 18px;
+        }
+        .aduanas-menu a {
+            text-decoration: none;
+            color: #003366;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+        .aduanas-menu i {
+            margin-right: 10px;
+            min-width: 22px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <div class="login-header">
+        <h1>Módulo Aduanas</h1>
+    </div>
+    <div class="login-box">
+        <ul class="aduanas-menu">
+            <li>
+                <a th:href="@{/menores}">
+                    <i class="fa fa-child"></i>
+                    Salida/Entrada de Menores
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/vehiculos}">
+                    <i class="fa fa-car"></i>
+                    Salida/Entrada Temporal de Vehículos
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/sag}">
+                    <i class="fa fa-leaf"></i>
+                    Declaración jurada SAG y Aduanas
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/control-sag-pdi}">
+                    <i class="fa fa-shield-alt"></i>
+                    Automatización y control de revisión SAG y PDI
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/ayuda}">
+                    <i class="fa fa-question-circle"></i>
+                    Sección de ayuda / FAQ
+                </a>
+            </li>
+        </ul>
+        <div style="margin-top:20px;">
+            <a th:href="@{/home}"><i class="fa fa-arrow-left"></i> Volver al Home</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
