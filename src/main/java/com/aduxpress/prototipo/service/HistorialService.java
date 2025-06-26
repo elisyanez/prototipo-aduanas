@@ -31,4 +31,12 @@ public class HistorialService {
         historial.setDetalle(detalle);
         historialRepository.save(historial);
     }
+
+    public List<Historial> obtenerHistorialPorUsuarioYRango(Usuario usuario, LocalDateTime inicio, LocalDateTime fin) {
+        return historialRepository.findByUsuarioAndFechaBetweenOrderByFechaDesc(usuario, inicio, fin);
+    }
+
+    public List<Historial> obtenerHistorialPorRango(LocalDateTime inicio, LocalDateTime fin) {
+        return historialRepository.findByFechaBetweenOrderByFechaDesc(inicio, fin);
+    }
 }
