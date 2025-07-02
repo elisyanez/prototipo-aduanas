@@ -48,7 +48,15 @@
             <button type="submit" class="login-button">Registrar</button>
         </form>
         <div th:if="${param.exito}" class="success-message">
-            Registro exitoso.
+            Ingreso de menor exitoso. Volviendo al menú anterior...
+            <script>
+                setTimeout(function() {
+                    window.location.href = '/aduanas';
+                }, 1800);
+            </script>
+        </div>
+        <div style="margin-top:20px;">
+            <a th:href="@{/aduanas}" class="login-button">Volver a Aduanas</a>
         </div>
     </div>
 </div>

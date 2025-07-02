@@ -31,10 +31,22 @@
             <button type="submit" class="login-button">Declarar</button>
         </form>
     </div>
+    <div th:if="${param.exito}" class="success-message">
+        Declaración registrada exitosamente.
+    </div>
+    <div style="margin-top:20px;">
+        <a th:href="@{/aduanas}" class="login-button">Volver a Aduanas</a>
+    </div>
     <script>
         document.getElementById('productos').addEventListener('change', function() {
             document.getElementById('detalleProductos').style.display = this.value === 'si' ? 'block' : 'none';
         });
+        // Redirigir automáticamente a Aduanas tras declaración exitosa
+        if (window.location.search.includes('exito')) {
+            setTimeout(function() {
+                window.location.href = '/aduanas';
+            }, 1800);
+        }
     </script>
 </div>
 </body>
